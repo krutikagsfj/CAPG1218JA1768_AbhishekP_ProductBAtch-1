@@ -1,0 +1,49 @@
+<html>
+  <body>
+   
+    <table align="center" style="border: 0">
+      <caption><b><h1>validations</h1></b></caption>
+      <tr>
+        <td>ID</td>
+        <td><input type="text"
+                   [(ngModel)]="id"
+                    name="id" 
+                    #idd="ngModel"
+                    pattern="[0-9]{5}"
+                    required>
+                    <div *ngIf="idd.invalid && idd.touched">
+                      <div *ngIf="idd.errors.required">
+                        Id is required
+                      </div>
+                      <div *ngIf="idd.errors.pattern">
+                        Only 5 digit numbers allowed.
+                      </div>
+                    </div>
+          </td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td><input type="text" [(ngModel)]="name" name="name"></td>
+      </tr>
+      <tr>
+        <td>Salary</td>
+        <td><input type="number" [(ngModel)]="salary" name="salary"></td>
+      </tr>
+      <tr>
+        <td>Department</td>
+        <td><input type="text" [(ngModel)]="department" name="department"></td>
+      </tr>
+      <tr><td colspan="2"><button type="submit" (click)="submitMethod()">Add Employee</button></tr>
+        <tr>
+          <p> <u>Details that you have entered:</u></p>
+            <p>ID: {{id}}</p>
+            <p>Name: {{name}}</p>
+            <p>Salary: {{salary}}</p>
+            <p>Department: {{department}}</p>
+            
+        </tr>
+      </table>
+  
+  </body>
+
+</html>
